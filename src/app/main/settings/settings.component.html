@@ -1,2 +1,43 @@
-<p>settings works!</p>
-dfdfd
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        <section class="users-list-wrapper">
+            <div class="card">
+                <section id="basic-tabs-components">
+                    <div class="row match-height">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card-body">
+                                <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                                    <li ngbNavItem>
+                                        <a ngbNavLink>User</a>
+                                        <ng-template ngbNavContent>
+                                           <app-app-user></app-app-user>
+                                        </ng-template>
+                                    </li>
+                                    <li ngbNavItem>
+                                        <a ngbNavLink>CPA</a>
+                                        <ng-template ngbNavContent>
+                                           <app-cpa></app-cpa>
+                                        </ng-template>
+                                    </li>
+                                    <li ngbNavItem>
+                                        <a ngbNavLink>Client</a>
+                                        <ng-template ngbNavContent>
+                                            <app-client></app-client>
+                                        </ng-template>
+                                    </li>
+                                    <li ngbNavItem>
+                                        <a ngbNavLink>Task</a>
+                                        <ng-template ngbNavContent>
+                                           <app-client></app-client>
+                                        </ng-template>
+                                    </li>                                  
+                                </ul>
+                                <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>
