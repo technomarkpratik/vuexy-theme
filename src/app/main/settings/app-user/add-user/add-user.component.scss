@@ -1,5 +1,3 @@
-@import '@core/scss/base/pages/app-invoice.scss';
-@import '@core/scss/angular/libs/flatpickr.component.scss';
 
 // Preview
 // Windows Print Dialogue
@@ -17,4 +15,7 @@
     max-width: 100% !important;
     flex: 0 0 100%;
   }
+}
+.modal-slide-in .modal-dialog.sidebar-lg{
+  width: 50%;
 }

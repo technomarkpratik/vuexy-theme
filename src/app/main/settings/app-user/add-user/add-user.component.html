@@ -2,7 +2,7 @@
     <!-- Modal to add new user starts-->
     <div class="modalsd modal-slide-in sdfade add-payment-modal" id="modals-slide-in">
       <div class="modal-dialog sidebar-lg">
-        <div class="modal-content p-0">
+        <div class="modal-content p-0" >
           <button
             type="button"
             class="close"
@@ -14,57 +14,155 @@
           </button>
           <div class="modal-header mb-1">
             <h5 class="modal-title">
-              <span class="align-middle">Add Payment</span>
+              <span class="align-middle">Add User</span>
             </h5>
           </div>
           <div class="modal-body flex-grow-1">
-            <form>
-              <div class="form-group">
-                <input id="balance" class="form-control" type="text" value="Invoice Balance: 5000.00" disabled />
+
+            <section id="basic-vertical-layouts">
+              <div class="row match-height">
+                <div class="col-12">
+        
+                    <div class="card-body">
+                      <form class="form form-vertical">
+                        <div class="row">
+          <div class="col-12">
+              <div class="card-body">
+                <form class="form-horizontal" (ngSubmit)="submitdata(regsisterform)" #regsisterform="ngForm">
+                  <div class="row">
+                    <div class="col-sm-6">
+
+                      <div class="form-group">
+                        <label class="form-control-label" for="full_name">Name</label>
+                        <input
+                          class="form-control input-md"
+                          [class.error]="!full_name.valid && full_name.touched"
+                          ngModel
+                          #full_name="ngModel"
+                          required
+                          id="full_name"
+                          name="full_name"
+                          type="text"
+                          placeholder="Your Name"
+                        />
+                        <span *ngIf="!full_name.valid && full_name.touched" class="invalid-form">
+                          <small class="form-text text-danger" *ngIf="full_name.errors.required"
+                            >This field is required!</small
+                          >
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="email">Email</label>
+                        <input
+                          class="form-control input-md"
+                          [class.error]="!email.valid && email.touched"
+                          ngModel
+                          #email="ngModel"
+                          required
+                          email
+                          id="email"
+                          name="email"
+                          type="text"
+                          placeholder="Your Email"
+                        />
+                        <span *ngIf="!email.valid && email.touched" class="invalid-form">
+                          <small class="form-text text-danger">email must be valid!</small>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="password">Password</label>
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          [class.error]="password.invalid && password.touched"
+                          placeholder="Your Password"
+                          ngModel
+                          #password="ngModel"
+                          required
+                          minlength="6"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                          id="password"
+                        />
+                        <div
+                          *ngIf="password.invalid && password.touched"
+                          class="form-text text-danger"
+                        >
+                          <small *ngIf="password.errors.required"> Password is required. </small>
+                          <small *ngIf="password.errors.pattern">
+                            Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                            more characters.</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="confirmpassword">Confirm Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          [class.error]="confirmpassword.invalid && confirmpassword.touched"
+                          placeholder="Confirm Password"
+                          minlength="6"
+                          name="confirmpassword"
+                          placeholder="Confirm Password"
+                          class="form-control"
+                          required
+                          ngModel
+                          #confirmpassword="ngModel"
+                          pattern="{{ password.value }}"
+                          id="confirmpassword"
+                        />
+                        <div
+                          *ngIf="confirmpassword.invalid && confirmpassword.touched"
+                          class="form-text text-danger"
+                        >
+                          <small *ngIf="confirmpassword.errors.required">
+                            Confirm password is required.
+                          </small>
+                          <small *ngIf="confirmpassword.errors.pattern">
+                            Password & Confirm Password does not match.</small
+                          >
+                        </div>
+                      </div>
+                    </div>  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="selectgender">Default</label>
+                      <select class="form-control mb-1" id="selectDefault"  name="selectgender"  required ngModel #selectgender="ngModel">
+                        <option selected>Open this select menu</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                      </select>
+                    </div>
+                  </div>
+                  </div>
+                  <button type="submit" [disabled]="!regsisterform.form.valid" class="btn btn-primary" rippleEffect>
+                    Submit
+                  </button>
+                  <button
+                type="button"
+                class="btn btn-outline-secondary ml-1"
+                data-dismiss="modal"
+                (click)="toggleSidebar('add-user')"
+                rippleEffect
+              >
+                Cancel
+              </button>
+                </form>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="amount">Payment Amount</label>
-                <input id="amount" class="form-control" type="number" placeholder="$1000" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="payment-date">Payment Date</label>
-                <ng2-flatpickr [config]="paymentDateOptions" name="Date"></ng2-flatpickr>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="payment-method">Payment Method</label>
-                <select class="form-control" id="payment-method">
-                  <option value="" selected disabled>Select payment method</option>
-                  <option value="Cash">Cash</option>
-                  <option value="Bank Transfer">Bank Transfer</option>
-                  <option value="Debit">Debit</option>
-                  <option value="Credit">Credit</option>
-                  <option value="Paypal">Paypal</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="payment-note">Internal Payment Note</label>
-                <textarea class="form-control" id="payment-note" rows="5" placeholder="Internal Payment Note"></textarea>
-              </div>
-              <div class="form-group d-flex flex-wrap mb-0">
-                <button
-                  type="button"
-                  class="btn btn-primary mr-1"
-                
-                  rippleEffect
-                >
-                  Send
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary"
-                  data-dismiss="modal"
-                  (click)="toggleSidebar('add-user')"
-                  rippleEffect
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+         
           </div>
         </div>
       </div>

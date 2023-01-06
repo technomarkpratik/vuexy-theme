@@ -19,7 +19,7 @@ import { AddUserComponent } from './app-user/add-user/add-user.component';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import { UserService } from './app-user/user.service';
 import { SettingsService } from './settings.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreSidebarModule } from '@core/components';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CoreDirectivesModule } from '@core/directives/directives';
@@ -56,6 +56,7 @@ const routes: Routes = [
     FormsModule,
     CoreDirectivesModule,
     CorePipesModule,
+    ReactiveFormsModule
 
   ],
   providers: [
@@ -66,6 +67,6 @@ const routes: Routes = [
 })
 export class SettingsModule {
   constructor() {
-    console.log("hello");
+   
   }
 }

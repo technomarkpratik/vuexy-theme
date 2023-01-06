@@ -18,7 +18,7 @@ export const menu: CoreMenu[] = [
         // If role is not assigned will be display to all
         id: 'settings',
         title: 'settings',
-        translate: 'MENU.DASHBOARD.ECOMMERCE',
+        translate: 'settings',
         type: 'item',
         icon: 'settings',
         url: 'settings'

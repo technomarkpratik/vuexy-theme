@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class UserService implements Resolve<any> {
   rows: any;
   onDatatablessChanged: BehaviorSubject<any>;
-
+serverurl : 'http://localhost:3000/regristerUser';
   /**
    * Constructor
    *
@@ -48,4 +48,5 @@ export class UserService implements Resolve<any> {
       }, reject);
     });
   }
+
 }

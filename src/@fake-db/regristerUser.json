@@ -1,0 +1,158 @@
+{
+  "regristerUser": [
+    {
+      "id": 1,
+      "avatar": "avatar-s-10.jpg",
+      "full_name": "Korrie O'Crevy",
+      "email": "kocrevy0@thetimes.co.uk",
+      "selectgender": "male",
+      "password": "pass"
+    },
+    {
+      "avatar": "avatar-s-10.jpg",
+      "full_name": "Pratik",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Prince@123",
+      "confirmpassword": "Prince@123",
+      "selectgender": "male",
+      "id": 2
+    },
+    {
+      "avatar": "avatar-s-10.jpg",
+      "full_name": "prapti",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Prince@123",
+      "confirmpassword": "Prince@123",
+      "selectgender": "female",
+      "id": 3
+    },
+    {
+      "full_name": "jatin",
+      "email": "jatin@123",
+      "password": "Jatin@123",
+      "confirmpassword": "Jatin@123",
+      "selectgender": "male",
+      "id": 4
+    },
+    {
+      "full_name": "bhargav",
+      "email": "bhargav@123",
+      "password": "Bhargav@123",
+      "confirmpassword": "Bhargav@123",
+      "selectgender": "male",
+      "id": 5
+    },
+    {
+      "full_name": "ratan",
+      "email": "ratan@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 6
+    },
+    {
+      "full_name": "ritu",
+      "email": "test@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "female",
+      "id": 7
+    },
+    {
+      "full_name": "shivani",
+      "email": "test@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "female",
+      "id": 8
+    },
+    {
+      "full_name": "rajesh",
+      "email": "rajesh@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 9
+    },
+    {
+      "full_name": "pragnesh",
+      "email": "pragnesh@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 10
+    },
+    {
+      "full_name": "urvish",
+      "email": "urvish@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 11
+    },
+    {
+      "full_name": "shivaji",
+      "email": "shivaji@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 12
+    },
+    {
+      "full_name": "kritidan",
+      "email": "kritidan@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 13
+    },
+    {
+      "full_name": "tata",
+      "email": "tata@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 14
+    },
+    {
+      "full_name": "ramesh",
+      "email": "ramesh@123",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "selectgender": "male",
+      "id": 15
+    },
+    {
+      "full_name": "ramesh",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Prince@123",
+      "confirmpassword": "Prince@123",
+      "selectgender": "male",
+      "id": 16
+    },
+    {
+      "full_name": "Pratik",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Prince@123",
+      "confirmpassword": "Prince@123",
+      "selectgender": "male",
+      "id": 17
+    },
+    {
+      "full_name": "Pratik",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Pratik@123",
+      "confirmpassword": "Pratik@123",
+      "selectgender": "male",
+      "id": 18
+    },
+    {
+      "full_name": "sdsd",
+      "email": "sathavarapratik76@gmail.com",
+      "password": "Prince@123",
+      "confirmpassword": "Prince@123",
+      "selectgender": "male",
+      "id": 19
+    }
+  ]
+}

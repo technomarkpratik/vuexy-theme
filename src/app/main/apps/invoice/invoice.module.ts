@@ -97,6 +97,7 @@ const routes: Routes = [
     CorePipesModule,
     NgbModule,
     NgSelectModule,
+    CorePipesModule,
     CoreSidebarModule
   ],
   providers: [InvoiceListService, InvoicePreviewService, InvoiceEditService, InvoiceAddService],
