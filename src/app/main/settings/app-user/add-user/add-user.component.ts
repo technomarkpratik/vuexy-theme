@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -31,7 +32,8 @@ export class AddUserComponent implements OnInit {
   submitdata(regsisterform){
     console.log(regsisterform.value);
  
-    this.http.post<any>('http://localhost:3000/regristerUser',regsisterform.value).subscribe(data => {
+    this.http.post<any>(`${environment.apiUrl}/auth/getuserdetail`,regsisterform.value).subscribe(data => {
+      console.log(data)
       console.log(data.toString());
       this.toggleSidebar('add-user');
     });

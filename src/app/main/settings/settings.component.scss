@@ -1,0 +1,47 @@
+.demo-inline-spacing{
+  
+    .select{
+        position:relative;
+      
+        input:checked + label {
+          background-color: #ffc107;
+          &:hover,
+          &:focus,
+          &:active{
+            background-color: #ffc107;      
+          }
+      }  
+      input{
+          opacity: 0;
+          position: absolute;
+        }
+      
+      .button_select{
+        margin: 0 10px 10px 0;
+        display:flex;
+        background-color: transparent;   
+        
+        &:hover,
+        &:focus,
+        &:active{
+          background-color: transparent;      
+        }
+      }
+    }
+    .button_select{
+        margin: 0 5px;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        &:hover{
+            background: red;
+            color: #fff;
+        }
+        &:focus{
+            background: red;
+            color: #fff;
+        }
+    } 
+    }
+
+    

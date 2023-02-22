@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { environment } from 'environments/environment';
+import { User } from 'app/auth/models';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,7 +42,7 @@ serverurl : 'http://localhost:3000/regristerUser';
    */
   getDataTableRows(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get('api/datatable-rows').subscribe((response: any) => {
+      this._httpClient.get<any[]>(`${environment.apiUrl}/auth/getuserdetail`).subscribe((response: any) => {
         this.rows = response;
         this.onDatatablessChanged.next(this.rows);
         resolve(this.rows);

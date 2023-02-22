@@ -7,10 +7,10 @@
               <div class="d-flex justify-content-between align-items-center m-1">
                 <label class="d-flex align-items-center">Show
                   <select class="form-control mx-25" [(ngModel)]="basicSelectedOption">
-                    <option value="5">5</option>
                     <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                   </select>
                   entries</label>
               </div>
@@ -48,13 +48,13 @@
             [scrollbarH]="true"
             [rows]="kitchenSinkRows"
             [limit]="basicSelectedOption">
-          <ngx-datatable-column [width]="50" name="fullName" prop="full_name">
+          <ngx-datatable-column [width]="50" name="FirstName" prop="FirstName">
           </ngx-datatable-column>
-          <ngx-datatable-column [width]="50" name="Email" prop="email">
+          <ngx-datatable-column [width]="50" name="EmailId" prop="EmailId">
           </ngx-datatable-column>
-          <ngx-datatable-column [width]="50" name="Password" prop="password">
+          <ngx-datatable-column [width]="50" name="MobileNo" prop="MobileNo">
           </ngx-datatable-column>
-          <ngx-datatable-column [width]="50" name="select gender" prop="selectgender">
+          <ngx-datatable-column [width]="50" name="MobileNo" prop="MobileNo">
           </ngx-datatable-column>
           </ngx-datatable>
       </section>

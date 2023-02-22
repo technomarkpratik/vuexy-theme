@@ -93,6 +93,7 @@ export class AuthLoginV2Component implements OnInit {
           this._router.navigate([this.returnUrl]);
         },
         error => {
+          console.log("error", error)
           this.error = error;
           this.loading = false;
         }
@@ -107,8 +108,12 @@ export class AuthLoginV2Component implements OnInit {
    */
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
-      email: ['admin@demo.com', [Validators.required, Validators.email]],
-      password: ['admin', Validators.required]
+      // email: ['admin@demo.com', [Validators.required, Validators.email]],
+      // password: ['admin', Validators.required]
+      //  email: ['admin@tms.com', [Validators.required, Validators.email]],
+      // password: ['P@ssw0rd', Validators.required]
+      email: ['pqlivedemo@gmail.com', [Validators.required, Validators.email]],
+      password: ['P@ssw0rd12345', Validators.required]
     });
 
     // get return url from route parameters or default to '/'

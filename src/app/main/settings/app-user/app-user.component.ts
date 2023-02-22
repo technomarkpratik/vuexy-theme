@@ -13,7 +13,7 @@ import { locale as portuguese } from 'app/main/tables/datatables/i18n/pt';
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
-
+import { environment } from 'environments/environment';
 @Component({
   selector: 'app-app-user',
   templateUrl: './app-user.component.html',
@@ -105,11 +105,12 @@ export class AppUserComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.http.get('http://localhost:3000/regristerUser').pipe(takeUntil(this._unsubscribeAll)).subscribe(data => { 
-      this.rows = data;
-      this.tempData = this.rows;
-      this.kitchenSinkRows = this.rows;
-      this.exportCSVData = this.rows;
+    this.http.get(`${environment.apiUrl}/auth/getuserdetail`).subscribe( (data:any) => { 
+  
+      // this.rows = data.ResponseData;
+      // this.tempData = this.rows;
+      // this.kitchenSinkRows = this.rows;
+      // this.exportCSVData = this.rows;
   });
     // this.UserService.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
     //   this.rows = response;

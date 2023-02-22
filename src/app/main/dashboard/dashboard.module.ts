@@ -20,6 +20,7 @@ import { DashboardService } from 'app/main/dashboard/dashboard.service';
 
 import { AnalyticsComponent } from 'app/main/dashboard/analytics/analytics.component';
 import { EcommerceComponent } from 'app/main/dashboard/ecommerce/ecommerce.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 const routes = [
   {
@@ -53,7 +54,8 @@ const routes = [
     PerfectScrollbarModule,
     CoreCommonModule,
     NgApexchartsModule,
-    InvoiceModule
+    InvoiceModule,
+    HighchartsChartModule
   ],
   providers: [DashboardService, InvoiceListService],
   exports: [EcommerceComponent]

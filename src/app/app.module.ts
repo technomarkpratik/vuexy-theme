@@ -31,6 +31,9 @@ import { AnimatedCustomContextMenuComponent } from './main/extensions/context-me
 import { BasicCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/basic-custom-context-menu/basic-custom-context-menu.component';
 import { SubMenuCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/sub-menu-custom-context-menu/sub-menu-custom-context-menu.component';
 
+import { UserService } from './auth/service/user.service';
+import { HighchartsChartModule } from 'highcharts-angular';
+
 
 const appRoutes: Routes = [
   {
@@ -97,7 +100,7 @@ const appRoutes: Routes = [
         ContextMenuComponent,
         BasicCustomContextMenuComponent,
         AnimatedCustomContextMenuComponent,
-        SubMenuCustomContextMenuComponent
+        SubMenuCustomContextMenuComponent,
     ],
     imports: [
         BrowserModule,
@@ -121,7 +124,8 @@ const appRoutes: Routes = [
         CoreThemeCustomizerModule,
         CardSnippetModule,
         LayoutModule,
-        ContentHeaderModule
+        ContentHeaderModule,
+        HighchartsChartModule,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

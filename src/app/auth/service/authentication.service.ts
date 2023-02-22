@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -43,7 +43,6 @@ export class AuthenticationService {
   get isClient() {
     return this.currentUser && this.currentUserSubject.value.role === Role.Client;
   }
-
   /**
    * User login
    *
@@ -51,33 +50,35 @@ export class AuthenticationService {
    * @param password
    * @returns user
    */
+  httpOptions = {
+    headers: new HttpHeaders({"Content-Type": "application/json", "Referer" : "https://staginglogin.pacificabs.com/", "Accept": "application/json, text/plain, */*"})
+  };
+
   login(email: string, password: string) {
-    return this._http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
+    // this._http.post<any>(`${environment.apiUrl}/auth/token`, { Username : email, Password : password }).subscribe((res)=>{
+    //   console.log(res)
+    // })
+
+    console.log(this.httpOptions);
+    return  this._http
+      .post<any>(`${environment.apiUrl}/security/token`, { username : email, password : password },this.httpOptions)    
       .pipe(
         map(user => {
+          console.log(user.ResponseData.Token)
           // login successful if there's a jwt token in the response
-          if (user && user.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
+          if (user && user.ResponseData && user.ResponseData.Token) {          
+            console.log(user)  
+            user.token = user.ResponseData.Token;
+            user.role = 'Admin';   
             localStorage.setItem('currentUser', JSON.stringify(user));
-
             // Display welcome toast!
-            setTimeout(() => {
-              this._toastrService.success(
-                'You have successfully logged in as an ' +
-                  user.role +
-                  ' user to Vuexy. Now you can start to explore. Enjoy! 🎉',
-                '👋 Welcome, ' + user.firstName + '!',
-                { toastClass: 'toast ngx-toastr', closeButton: true }
-              );
-            }, 2500);
-
-            // notify
-            this.currentUserSubject.next(user);
+            this.currentUserSubject.next(user);                     
+            // notify          
+          }else { 
+            return user;
           }
-
           return user;
-        })
+        })        
       );
   }
 
@@ -91,4 +92,5 @@ export class AuthenticationService {
     // notify
     this.currentUserSubject.next(null);
   }
+  
 }

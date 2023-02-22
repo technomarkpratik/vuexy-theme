@@ -5,6 +5,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import { hmrBootstrap } from './hmr';
+import { HttpClient } from '@angular/common/http';
 
 if (environment.production) {
   enableProdMode();
