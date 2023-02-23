@@ -18,44 +18,16 @@ import { locale as menuEnglish } from 'app/menu/i18n/en';
 import { locale as menuFrench } from 'app/menu/i18n/fr';
 import { locale as menuGerman } from 'app/menu/i18n/de';
 import { locale as menuPortuguese } from 'app/menu/i18n/pt';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
-import * as Highcharts from 'highcharts';
+
+import Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  data = [{
-    name: 'ItSolutionStuff.com',
-    data: [500, 700, 555, 444, 777, 877, 944, 567, 666, 789, 456, 654]
- },{
-    name: 'Nicesnippets.com',
-    data: [677, 455, 677, 877, 455, 778, 888, 567, 785, 488, 567, 654]
- }];
 
-highcharts = Highcharts;
-chartOptions = {   
-chart: {
- type: "spline"
-},
-title: {
- text: "Monthly Site Visitor"
-},
-xAxis:{
- categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-},
-yAxis: {          
- title:{
-    text:"Visitors"
- } 
-},
-series: this.data
-};
-
-  
   coreConfig: any;
   menu: any;
   defaultLanguage: 'en'; // This language will be used as a fallback when a translation isn't found in the current language
@@ -88,10 +60,8 @@ series: this.data
     private _coreLoadingScreenService: CoreLoadingScreenService,
     private _coreMenuService: CoreMenuService,
     private _coreTranslationService: CoreTranslationService,
-    private _translateService: TranslateService,
-    private _http : HttpClient
+    private _translateService: TranslateService
   ) {
-   
     // Get the application main menu
     this.menu = menu;
 
@@ -123,7 +93,7 @@ series: this.data
   ngOnInit(): void {
     // Init wave effect (Ripple effect)
     Waves.init();
-    console.log('hello');
+
     // Subscribe to config changes
     this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
       this.coreConfig = config;

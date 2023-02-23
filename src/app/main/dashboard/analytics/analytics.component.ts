@@ -8,7 +8,9 @@ import { colors } from 'app/colors.const';
 import { User } from 'app/auth/models';
 import { UserService } from 'app/auth/service';
 import { DashboardService } from 'app/main/dashboard/dashboard.service';
-import * as highcharts from 'highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
+import Highcharts from 'highcharts';
+
 
 @Component({
   selector: 'app-analytics',
@@ -17,14 +19,6 @@ import * as highcharts from 'highcharts';
   encapsulation: ViewEncapsulation.None
 })
 export class AnalyticsComponent implements OnInit {
-  
-  Highcharts: typeof highcharts = highcharts;
-  chartOptions: Highcharts.Options = {
-    series: [{
-      data: [1, 2, 3],
-      type: 'line'
-    }]
-  };
   // Decorator
   @ViewChild('gainedChartRef') gainedChartRef: any;
   @ViewChild('orderChartRef') orderChartRef: any;
@@ -32,6 +26,13 @@ export class AnalyticsComponent implements OnInit {
   @ViewChild('supportChartRef') supportChartRef: any;
   @ViewChild('salesChartRef') salesChartRef: any;
 
+  Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    series: [{
+      data: [1, 2, 3],
+      type: 'line'
+    }]
+  };
   // Public
   public data: any;
   public currentUser: any;
@@ -65,8 +66,7 @@ export class AnalyticsComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private _dashboardService: DashboardService,
-    private _coreConfigService: CoreConfigService,
-
+    private _coreConfigService: CoreConfigService
   ) {
     // Subscribers Gained chart
     this.gainedChartoptions = {
@@ -295,6 +295,9 @@ export class AnalyticsComponent implements OnInit {
       }
     };
   }
+
+
+ 
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------

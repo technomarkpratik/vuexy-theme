@@ -12,6 +12,7 @@ export class UserService implements Resolve<any> {
   rows: any;
   onDatatablessChanged: BehaviorSubject<any>;
 serverurl : 'http://localhost:3000/regristerUser';
+apiUrl: 'http://localhost:4000'
   /**
    * Constructor
    *
@@ -42,7 +43,7 @@ serverurl : 'http://localhost:3000/regristerUser';
    */
   getDataTableRows(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get<any[]>(`${environment.apiUrl}/auth/getuserdetail`).subscribe((response: any) => {
+      this._httpClient.get<any[]>(`${this.apiUrl}/users`).subscribe((response: any) => {
         this.rows = response;
         this.onDatatablessChanged.next(this.rows);
         resolve(this.rows);

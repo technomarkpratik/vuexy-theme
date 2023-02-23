@@ -105,20 +105,20 @@ export class AppUserComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.http.get(`${environment.apiUrl}/auth/getuserdetail`).subscribe( (data:any) => { 
+  //   this.http.get(`${environment.apiUrl}/auth/getuserdetail`).subscribe( (data:any) => { 
   
-      // this.rows = data.ResponseData;
-      // this.tempData = this.rows;
-      // this.kitchenSinkRows = this.rows;
-      // this.exportCSVData = this.rows;
-  });
-    // this.UserService.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-    //   this.rows = response;
+  //     // this.rows = data.ResponseData;
+  //     // this.tempData = this.rows;
+  //     // this.kitchenSinkRows = this.rows;
+  //     // this.exportCSVData = this.rows;
+  // });
+    this.UserService.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+      this.rows = response;
   
-    //   this.tempData = this.rows;
-    //   this.kitchenSinkRows = this.rows;
-    //   this.exportCSVData = this.rows;
-    // });
+      this.tempData = this.rows;
+      this.kitchenSinkRows = this.rows;
+      this.exportCSVData = this.rows;
+    });
 
 
   }

@@ -22,8 +22,8 @@ export class ErrorInterceptor implements HttpInterceptor {
           this._router.navigate(['/pages/miscellaneous/not-authorized']);
 
           // ? Can also logout and reload if needed
-          this._authenticationService.logout();
-          location.reload();
+          // this._authenticationService.logout();
+          // location.reload();
         }
         // throwError
         const error = err.error.message || err.statusText;

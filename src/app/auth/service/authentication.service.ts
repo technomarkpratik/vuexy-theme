@@ -66,7 +66,7 @@ export class AuthenticationService {
         map(user => {
           console.log(user.ResponseData.Token)
           // login successful if there's a jwt token in the response
-          if (user && user.ResponseData && user.ResponseData.Token) {          
+          if (user && user.ResponseData) {          
             console.log(user)  
             user.token = user.ResponseData.Token;
             user.role = 'Admin';   
@@ -75,7 +75,7 @@ export class AuthenticationService {
             this.currentUserSubject.next(user);                     
             // notify          
           }else { 
-            return user;
+
           }
           return user;
         })        

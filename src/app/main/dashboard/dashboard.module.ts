@@ -22,6 +22,8 @@ import { AnalyticsComponent } from 'app/main/dashboard/analytics/analytics.compo
 import { EcommerceComponent } from 'app/main/dashboard/ecommerce/ecommerce.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 
+
+
 const routes = [
   {
     path: 'analytics',
@@ -56,6 +58,7 @@ const routes = [
     NgApexchartsModule,
     InvoiceModule,
     HighchartsChartModule
+
   ],
   providers: [DashboardService, InvoiceListService],
   exports: [EcommerceComponent]
